@@ -12,15 +12,20 @@ f.close()
 
 #og Duplicate
 duplicates = []
-for name_1 in names_1:
-    for name_2 in names_2:
-        if name_1 == name_2:
-            duplicates.append(name_1)
+# for name_1 in names_1:
+#     for names_2 in names_2:
+#         if names_1 == names_2:
+#             duplicates.append(name_1)
+#runtime: 6 seconds
+newSet = set(names_1)
+for name in names_2:
+    if name in newSet:
+        duplicates.append(name)
 
+# runtime: 0.006981372833251953 seconds
 end_time = time.time()
+
 print (f"{len(duplicates)} duplicates:\n\n{', '.join(duplicates)}\n\n")
 print (f"runtime: {end_time - start_time} seconds")
 
-#fast
-print (f"{len(fast_duplicates)} duplicates:\n\n{', '.join(fast_duplicates)}\n\n")
-print (f"runtime: {end_time - start_time} seconds")
+
