@@ -7,8 +7,8 @@ class RingBuffer:
   def append(self, item):
     print("current value:",self.current)
     print("store:", self.storage)
-    self.storage[self.current] = item
-    if self.current < self.capacity -1:
+    if self.current <= len(self.storage) -1:
+      self.storage[self.current] = item
       self.current += 1 
     else: 
       self.current = 0
